@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<script>window.__errs=[];addEventListener('error',e=>__errs.push(String(e.message)+' @'+String(e.filename).split('/').pop()+':'+e.lineno));</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F5F5F7">
+<title>Кирилл и Даня — расскажите о деле, покажем ваш сайт</title>
+<meta name="description" content="Сайты и Telegram-боты для бизнеса. Расскажите о деле в переписке — первый экран вашего сайта покажем бесплатно за 24 часа.">
+<link rel="stylesheet" href="../assets/fonts/inter.css">
+<style>
+:root{
+  --bg:#F5F5F7;--white:#fff;--t:#1D1D1F;--t2:#6E6E73;--t3:#8E8E93;--line:rgba(0,0,0,.08);--line2:rgba(0,0,0,.14);
+  --blue:#2B5BFF;--blue2:#1F4BEB;--violet:#6B4BFF;--ice:#EAF2FF;--ice2:#9CC4FF;
+  --grad:linear-gradient(92deg,#2B5BFF 0%,#5B5BFF 55%,#8A4BFF 100%);
+  --glass:rgba(255,255,255,.84);--glass-b:rgba(255,255,255,.85);
+  --sh:0 1px 1px rgba(20,30,70,.04),0 10px 30px -8px rgba(20,30,70,.12),0 40px 90px -30px rgba(40,60,160,.22);
+  --font:-apple-system,'SF Pro Display','Inter',system-ui,sans-serif;
+  --spring:cubic-bezier(.32,1.25,.5,1);--out:cubic-bezier(.22,1,.36,1);
+  --gut:clamp(16px,4vw,48px);--r:24px;--r2:34px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);color:var(--t);font-family:var(--font);-webkit-font-smoothing:antialiased;scroll-padding-top:70px}
+body{background:var(--bg);overflow-x:clip;font-size:17px;line-height:1.47;letter-spacing:-.011em}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px;border-radius:10px}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1,h2,h3{font-weight:700;letter-spacing:-.038em;line-height:1.03}
+h2{font-size:clamp(36px,5.6vw,76px)}
+h3{font-size:clamp(20px,1.9vw,25px);letter-spacing:-.022em;line-height:1.15}
+.lead{font-size:clamp(18px,1.6vw,22px);color:var(--t2);line-height:1.42;letter-spacing:-.016em;max-width:42ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 24px;border-radius:999px;background:var(--blue);color:#fff;font-weight:600;font-size:16px;transition:background .2s,transform .25s var(--spring),box-shadow .25s}
+.btn:hover{background:var(--blue2);box-shadow:0 10px 30px -10px rgba(43,91,255,.6)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:rgba(0,0,0,.05);color:var(--t)}
+.btn.ghost:hover{background:rgba(0,0,0,.09);box-shadow:none}
+.more{color:var(--blue);font-weight:500;display:inline-flex;align-items:center;gap:4px}
+.more:hover{text-decoration:underline;text-underline-offset:3px}
+.more::after{content:'›';font-size:1.25em;line-height:1;transform:translateY(-1px)}
+.tag{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:0;background:rgba(0,0,0,.06);color:var(--t2)}
+.tag.client{background:rgba(43,91,255,.12);color:var(--blue)}
+.sec{padding:clamp(100px,13vw,170px) 0 0}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px;margin-bottom:clamp(36px,5vw,60px)}
+
+/* мягкое «небо» — медленно плывущие холодные пятна */
+.sky{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:var(--bg)}
+.sky i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.55}
+.sky i:nth-child(1){width:46vw;height:46vw;left:-10vw;top:-12vw;background:#cfe0ff;animation:dr1 26s ease-in-out infinite alternate}
+.sky i:nth-child(2){width:40vw;height:40vw;right:-8vw;top:10vh;background:#e3d9ff;animation:dr2 32s ease-in-out infinite alternate}
+.sky i:nth-child(3){width:36vw;height:36vw;left:30vw;bottom:-18vw;background:#d7f0ff;animation:dr1 38s ease-in-out infinite alternate-reverse}
+@keyframes dr1{to{transform:translate(8vw,6vh) scale(1.1)}}
+@keyframes dr2{to{transform:translate(-6vw,10vh) scale(.92)}}
+
+/* ── Верх ── */
+.top{position:fixed;inset:0 0 auto;z-index:50;height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 var(--gut);background:rgba(245,245,247,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;transition:border-color .3s}
+.scrolled .top{border-color:var(--line)}
+.mark{font-weight:700;font-size:18px;letter-spacing:-.04em;display:flex;align-items:center;gap:10px}
+.mark .av{display:flex}
+.mark .av img{width:28px;height:28px;border-radius:50%;object-fit:cover;border:2px solid var(--bg)}
+.mark .av img+img{margin-left:-10px}
+.nav{display:flex;gap:26px;font-size:14px;color:var(--t2)}
+.nav a:hover{color:var(--t)}
+.top .btn{height:34px;padding:0 15px;font-size:14px}
+@media (max-width:860px){.nav{display:none}}
+
+/* ── Первый экран: разговор ── */
+.hero{min-height:100vh;min-height:100svh;padding:clamp(84px,11vh,120px) 0 40px;display:flex;align-items:center}
+.hgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,560px);gap:clamp(30px,5vw,80px);align-items:center}
+.hero h1{font-size:clamp(42px,5.3vw,80px)}
+.hero .lead{margin-top:22px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;font-size:15px;color:var(--t2)}
+.trust span{display:flex;align-items:center;gap:8px}
+.trust span::before{content:'';width:18px;height:18px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat;flex:none}
+.alt{margin-top:26px;font-size:15px;color:var(--t2);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+@media (max-width:940px){.hgrid{grid-template-columns:minmax(0,1fr)}.hero{min-height:0;display:block}}
+
+.stagebox{position:relative;perspective:1400px}
+.float{position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none;transition:transform .9s var(--out)}
+.fw{position:absolute;width:62%;border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--sh);border:1px solid rgba(255,255,255,.9);transition:transform 1.1s var(--spring),opacity .6s}
+.fw::before{content:'';display:block;height:18px;background:rgba(246,246,248,.95);border-bottom:1px solid var(--line);background-image:radial-gradient(circle at 10px 9px,#ff5f57 3px,transparent 3.5px),radial-gradient(circle at 21px 9px,#febc2e 3px,transparent 3.5px),radial-gradient(circle at 32px 9px,#28c840 3px,transparent 3.5px)}
+.fw img{width:100%;aspect-ratio:2/1;object-fit:cover;object-position:top}
+.fw.f1{left:-30%;top:4%;transform:translateZ(-260px) rotateY(24deg)}
+.fw.f2{right:-30%;top:30%;transform:translateZ(-320px) rotateY(-24deg)}
+.fw.f3{left:-20%;bottom:-2%;transform:translateZ(-200px) rotateY(18deg) rotateX(-4deg)}
+.fw.pop{animation:fpop 1.1s var(--spring)}
+@keyframes fpop{0%{opacity:0;filter:blur(8px)}}
+@media (max-width:940px){.float{display:none}}
+
+/* окно переписки */
+.chatw{position:relative;z-index:2;display:flex;flex-direction:column;height:min(640px,calc(100svh - 150px));min-height:520px;border-radius:var(--r2);background:var(--glass);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);border:1px solid var(--glass-b);box-shadow:var(--sh);overflow:hidden}
+@media (max-width:940px){.chatw{height:min(620px,78svh);min-height:480px}}
+.ch-top{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.55)}
+.ch-top .av{display:flex;flex:none}
+.ch-top .av img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #fff}
+.ch-top .av img+img{margin-left:-12px}
+.ch-top b{display:block;font-size:16px;letter-spacing:-.015em}
+.ch-top small{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--t2)}
+.ch-top small::before{content:'';width:7px;height:7px;border-radius:50%;background:#30c75a}
+.ch-act{margin-left:auto;display:flex;gap:6px}
+.ib{height:32px;padding:0 12px;border-radius:999px;background:rgba(0,0,0,.05);font-size:13px;font-weight:600;color:var(--t2);display:inline-flex;align-items:center;gap:6px}
+.ib:hover{background:rgba(0,0,0,.09);color:var(--t)}
+.msgs{flex:1;overflow-y:auto;padding:18px 16px 10px;display:flex;flex-direction:column;gap:6px;scroll-behavior:smooth;overscroll-behavior:contain}
+.msgs::-webkit-scrollbar{width:0}
+.day{align-self:center;font-size:12px;color:var(--t3);margin:2px 0 8px}
+.m{max-width:84%;padding:9px 14px;border-radius:20px;font-size:15.5px;line-height:1.38;animation:min .5s var(--spring) both;transform-origin:left bottom;word-wrap:break-word}
+.m.them{align-self:flex-start;background:#E9E9EB;color:var(--t);border-bottom-left-radius:6px}
+.m.me{align-self:flex-end;background:linear-gradient(180deg,#3A6BFF,#2B5BFF);color:#fff;border-bottom-right-radius:6px;transform-origin:right bottom}
+.m.me.edit{cursor:pointer}
+.who{font-size:12px;color:var(--t3);margin:8px 0 0 12px;align-self:flex-start}
+@keyframes min{from{opacity:0;transform:translateY(8px) scale(.9)}}
+.typing{align-self:flex-start;background:#E9E9EB;border-radius:20px;border-bottom-left-radius:6px;padding:12px 14px;display:flex;gap:4px;animation:min .4s var(--spring) both}
+.typing i{width:7px;height:7px;border-radius:50%;background:#9a9aa0;animation:tp 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tp{0%,60%,100%{opacity:.35;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.card{align-self:flex-start;width:min(84%,340px);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px -10px rgba(0,0,0,.18);animation:min .55s var(--spring) both;display:block}
+.card img{width:100%;aspect-ratio:2/1;object-fit:cover;object-position:top}
+.card div{padding:10px 14px 12px;display:grid;gap:2px}
+.card b{font-size:15px;display:flex;align-items:center;gap:8px;justify-content:space-between}
+.card span{font-size:13px;color:var(--t2)}
+.card:hover b{color:var(--blue)}
+.rcpt{align-self:flex-start;width:min(92%,380px);border-radius:22px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06),0 10px 30px -12px rgba(0,0,0,.2);padding:16px 16px 14px;animation:min .55s var(--spring) both}
+.rcpt h4{font-size:15px;letter-spacing:-.01em;margin-bottom:10px}
+.rcpt dl{display:grid;gap:7px;font-size:14px}
+.rcpt dl div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px}
+.rcpt dt{color:var(--t3)}
+.rcpt .sum{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed var(--line2);margin-top:12px;padding-top:10px}
+.rcpt .sum b{font-size:22px;letter-spacing:-.03em}
+.rcpt .sum span{font-size:13px;color:var(--t2)}
+.rcpt .btn{width:100%;margin-top:12px;height:46px}
+.rcpt .row{display:flex;gap:8px;margin-top:8px}
+.rcpt .row .btn{margin:0;height:40px;font-size:14px;flex:1;padding:0 10px}
+.dock{padding:10px 12px 12px;border-top:1px solid var(--line);background:rgba(255,255,255,.5)}
+.opts{display:flex;flex-wrap:wrap;gap:7px;max-height:168px;overflow-y:auto;padding:2px}
+.op{height:38px;padding:0 15px;border-radius:999px;background:#fff;border:1px solid var(--line2);font-size:14.5px;font-weight:500;color:var(--t);transition:background .2s,border-color .2s,color .2s,transform .2s var(--spring);animation:min .45s var(--spring) both}
+.op:hover{border-color:var(--blue);color:var(--blue)}
+.op:active{transform:scale(.96)}
+.op[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:#fff}
+.op small{font-size:12.5px;opacity:.7;margin-left:4px}
+.op.rec{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue) inset}
+.op.go{background:var(--t);border-color:var(--t);color:#fff}
+.op.go:hover{color:#fff;opacity:.9}
+.op.skip{border-style:dashed;color:var(--t2)}
+.comp{display:flex;gap:8px;align-items:flex-end}
+.comp textarea,.comp input{flex:1;min-height:44px;max-height:120px;border-radius:22px;border:1px solid var(--line2);background:#fff;padding:11px 16px;font-size:16px;resize:none;line-height:1.35}
+.comp textarea:focus,.comp input:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(43,91,255,.15)}
+.send{width:44px;height:44px;border-radius:50%;background:var(--blue);display:grid;place-items:center;flex:none;transition:transform .25s var(--spring),opacity .2s}
+.send:disabled{opacity:.35;cursor:default}
+.send:not(:disabled):active{transform:scale(.9)}
+.hint{font-size:12.5px;color:var(--t3);margin:6px 6px 0;min-height:16px}
+.hint.err{color:#d93025}
+.dock .opts+.hint{display:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* плавающая кнопка «вернуться к разговору» */
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:45;display:flex;align-items:center;gap:10px;height:56px;padding:0 20px 0 8px;border-radius:999px;background:rgba(255,255,255,.78);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--glass-b);box-shadow:var(--sh);font-weight:600;font-size:15px;transform:translateY(140%);transition:transform .55s var(--spring)}
+.fab.show{transform:none}
+.fab .av{display:flex}.fab .av img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #fff}.fab .av img+img{margin-left:-14px}
+.fab .badge{min-width:20px;height:20px;border-radius:10px;background:#ff3b30;color:#fff;font-size:12px;display:grid;place-items:center;padding:0 5px;margin-left:-4px}
+
+/* лист с перепиской поверх страницы */
+.sheet{position:fixed;inset:0;z-index:70;display:none;align-items:flex-end;justify-content:flex-end;padding:16px;background:rgba(245,245,247,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.sheet.open{display:flex}
+.sheet .slot{width:min(440px,100%);animation:sh .5s var(--spring)}
+.sheet .chatw{height:min(680px,calc(100svh - 32px))}
+@keyframes sh{from{opacity:0;transform:translateY(40px) scale(.96)}}
+.closeS{display:none}
+.sheet .closeS{display:inline-flex}
+
+/* ── Пространство работ ── */
+#space{position:relative;height:520vh;margin-top:clamp(60px,8vw,100px)}
+.sp-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;perspective:1100px;perspective-origin:50% 45%}
+.sp-head{position:absolute;left:0;right:0;top:clamp(76px,11vh,110px);text-align:center;z-index:3;padding:0 var(--gut);pointer-events:none;transition:opacity .4s}
+.sp-head p{color:var(--t2);margin-top:12px;font-size:clamp(16px,1.4vw,19px)}
+.world{position:absolute;left:50%;top:52%;transform-style:preserve-3d;will-change:transform}
+.win{position:absolute;left:0;top:0;width:var(--ww,480px);margin-left:calc(var(--ww,480px) / -2);margin-top:calc(var(--ww,480px) / -4 - 22px);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 30px 70px -20px rgba(30,40,100,.3),0 0 0 1px rgba(0,0,0,.05);transform-style:preserve-3d;backface-visibility:hidden}
+.win .bar{display:flex;align-items:center;gap:8px;height:30px;padding:0 12px;background:rgba(248,248,250,.96);border-bottom:1px solid var(--line);font-size:12px;color:var(--t2)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:#e0e0e4;flex:none}
+.win .bar span{margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win img{width:100%;aspect-ratio:2/1;object-fit:cover;object-position:top}
+.win.on{box-shadow:0 40px 90px -20px rgba(43,91,255,.45),0 0 0 2px var(--blue)}
+.sp-cap{position:absolute;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:3;width:min(560px,calc(100% - 32px));display:flex;align-items:center;gap:14px;padding:12px 12px 12px 20px;border-radius:24px;background:rgba(255,255,255,.78);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--glass-b);box-shadow:var(--sh)}
+.sp-cap .tx{flex:1;min-width:0}
+.sp-cap b{font-size:17px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.sp-cap span{display:block;font-size:13.5px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sp-cap .btn{height:40px;padding:0 16px;font-size:14px;flex:none}
+.sp-prog{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(max(24px,env(safe-area-inset-bottom)) + 84px);z-index:3;font-size:12px;color:var(--t3);font-variant-numeric:tabular-nums}
+@media (max-width:760px){.sp-cap{bottom:calc(max(16px,env(safe-area-inset-bottom)) + 70px)}.sp-prog{bottom:calc(max(16px,env(safe-area-inset-bottom)) + 150px)}}
+.flat #space{height:auto}
+.flat .sp-stick{position:relative;height:auto;perspective:none;overflow:visible;padding-bottom:20px}
+.flat .sp-head{position:relative;top:0;margin-bottom:40px}
+.flat .world{position:relative;left:0;top:0;transform:none!important;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.flat .win{position:relative;width:auto;margin:0;transform:none!important;opacity:1!important}
+.flat .sp-cap,.flat .sp-prog{display:none}
+
+/* ── Пакеты ── */
+.pk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.pkc{position:relative;background:var(--white);border-radius:var(--r2);padding:28px 24px 24px;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:transform .5s var(--spring),box-shadow .4s}
+.pkc:hover{transform:translateY(-6px);box-shadow:var(--sh)}
+.pkc.hit{box-shadow:0 0 0 2px var(--blue),var(--sh)}
+.pkc .badge{position:absolute;top:-11px;left:24px;height:22px;padding:0 10px;border-radius:999px;background:var(--blue);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center}
+.pkc h3{font-size:24px}
+.pkc .pr{font-size:clamp(28px,2.6vw,36px);font-weight:700;letter-spacing:-.04em;margin:14px 0 2px}
+.pkc .pr small{font-size:15px;font-weight:600;color:var(--t2);letter-spacing:0;margin-right:4px}
+.pkc .dd{font-size:14px;color:var(--t2)}
+.pkc .for{font-size:14.5px;color:var(--t2);margin:14px 0 16px;min-height:4.4em}
+.pkc ul{list-style:none;display:grid;gap:9px;font-size:14.5px;margin-bottom:22px;flex:1}
+.pkc li{display:flex;gap:9px}
+.pkc li::before{content:'';flex:none;width:16px;height:16px;margin-top:3px;border-radius:50%;background:rgba(43,91,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%232B5BFF' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.pkc .btn{width:100%}
+.pkc .eg{font-size:13.5px;margin-top:12px;align-self:center}
+@media (max-width:1040px){.pk{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.pk{grid-template-columns:minmax(0,1fr)}.pkc .for{min-height:0}}
+.extras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+.ex{background:rgba(255,255,255,.6);border:1px solid var(--glass-b);border-radius:var(--r);padding:22px}
+.ex h3{font-size:18px;margin-bottom:10px}
+.ex li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:14px;list-style:none}
+.ex li span:last-child{white-space:nowrap;color:var(--t2)}
+@media (max-width:860px){.extras{grid-template-columns:minmax(0,1fr)}}
+
+/* ── Спокойствие ── */
+.calm{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.cl{background:var(--white);border-radius:var(--r2);padding:26px 22px;min-height:250px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.cl .big{font-size:clamp(34px,3.4vw,50px);font-weight:700;letter-spacing:-.05em;line-height:1}
+.cl h3{font-size:18px;margin-bottom:6px}
+.cl p{font-size:14.5px;color:var(--t2)}
+.cl:first-child{background:linear-gradient(160deg,#2B5BFF,#6B4BFF);color:#fff}
+.cl:first-child p{color:rgba(255,255,255,.82)}
+.cl:first-child .big{color:#fff}
+@media (max-width:1040px){.calm{grid-template-columns:repeat(2,minmax(0,1fr))}.cl:first-child{grid-column:span 2}}
+@media (max-width:560px){.calm{grid-template-columns:minmax(0,1fr)}.cl:first-child{grid-column:auto}.cl{min-height:0}}
+
+/* ── Истории ── */
+.stories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.st{background:var(--white);border-radius:var(--r2);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.st .im{aspect-ratio:2/1;overflow:hidden;background:#eee}
+.st .im img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 1.2s var(--out)}
+.st:hover .im img{transform:scale(1.03)}
+.st .tx{padding:24px 26px 26px;display:flex;flex-direction:column;gap:12px;flex:1}
+.st .tx p{color:var(--t2)}
+.st dl{display:grid;gap:8px;font-size:14.5px;margin-top:4px}
+.st dl div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;border-top:1px solid var(--line);padding-top:8px}
+.st dt{color:var(--t3)}
+.st .more{margin-top:auto;padding-top:6px}
+@media (max-width:860px){.stories{grid-template-columns:minmax(0,1fr)}}
+
+/* ── Как работаем ── */
+.road{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.rd{background:rgba(255,255,255,.6);border:1px solid var(--glass-b);border-radius:var(--r);padding:20px}
+.rd .n{width:30px;height:30px;border-radius:50%;background:var(--t);color:#fff;font-size:14px;font-weight:700;display:grid;place-items:center;margin-bottom:16px}
+.rd:nth-child(2) .n{background:var(--blue)}
+.rd .tm{font-size:13px;font-weight:600;color:var(--blue)}
+.rd b{display:block;font-size:20px;letter-spacing:-.02em;margin:2px 0 6px}
+.rd p{font-size:14.5px;color:var(--t2)}
+@media (max-width:960px){.road{grid-template-columns:minmax(0,1fr)}}
+.give{margin-top:14px;background:var(--white);border-radius:var(--r);padding:22px 24px;display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;font-size:15px}
+.give b{font-size:16px}
+.give span{color:var(--t2);display:flex;gap:8px;align-items:center}
+.give span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue)}
+
+/* ── Мы ── */
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ps{background:var(--white);border-radius:var(--r2);padding:clamp(24px,3vw,36px);display:flex;gap:22px;align-items:flex-start;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.ps img{width:clamp(88px,9vw,120px);aspect-ratio:1;border-radius:50%;object-fit:cover;flex:none}
+.ps h3{font-size:26px}
+.ps .nk{font-size:14px;color:var(--t3);margin:2px 0 12px}
+.ps q{display:block;color:var(--t2);quotes:'«' '»';line-height:1.45}
+.ps .btn{margin-top:18px;height:40px;font-size:14.5px}
+.us-note{margin-top:20px;color:var(--t2);max-width:64ch}
+@media (max-width:860px){.duo{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:440px){.ps{flex-direction:column}}
+.ai{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+.ai>div{background:rgba(255,255,255,.6);border:1px solid var(--glass-b);border-radius:var(--r);padding:22px 24px}
+.ai h3{font-size:18px;margin-bottom:10px}
+.ai li{list-style:none;color:var(--t2);font-size:15px;padding:5px 0}
+@media (max-width:760px){.ai{grid-template-columns:minmax(0,1fr)}}
+
+/* ── Вопросы ── */
+.faq{max-width:880px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;gap:20px;padding:20px 0;font-size:clamp(17px,1.6vw,20px);font-weight:600;letter-spacing:-.02em;cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-weight:400;font-size:26px;line-height:1;color:var(--t2);transition:transform .35s var(--out)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{color:var(--t2);padding:0 0 22px;max-width:66ch}
+
+.final{text-align:center;padding:clamp(110px,15vw,190px) 0 clamp(80px,10vw,120px)}
+.final h2{font-size:clamp(40px,6.6vw,96px);max-width:14ch;margin:0 auto}
+.final .lead{margin:20px auto 32px}
+footer{border-top:1px solid var(--line);padding:26px 0 calc(90px + env(safe-area-inset-bottom));font-size:13px;color:var(--t3)}
+footer .wrap{display:grid;gap:10px}
+footer .fr{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 30px}
+footer a{color:var(--t2)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.sky i{animation:none}}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"><i></i><i></i><i></i></div>
+<header class="top">
+  <a class="mark" href="#top"><span class="av" aria-hidden="true"><img src="../assets/team/kirill.jpg" alt=""><img src="../assets/team/danya.jpg" alt=""></span>Кирилл и Даня</a>
+  <nav class="nav" aria-label="Разделы"><a href="#space">Работы</a><a href="#price">Цены</a><a href="#how">Как работаем</a><a href="#faq">Вопросы</a></nav>
+  <a class="btn" href="#chat" data-tochat>Написать</a>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hgrid">
+      <div>
+        <h1>Расскажите о деле. <span class="grad">Завтра покажем ваш сайт.</span></h1>
+        <p class="lead">Мы — Кирилл и Даня, делаем сайты и Telegram-ботов для бизнеса. Ответьте на пару вопросов в переписке справа — первый экран вашего сайта пришлём бесплатно за 24 часа.</p>
+        <div class="trust"><span>Демо бесплатно</span><span>Оплата 50/50 после демо</span><span>Сайт и домен — ваши</span></div>
+        <p class="alt">Не любите формы? <a class="more" href="https://t.me/AI_KUHTA" target="_blank" rel="noopener">Напишите Кириллу</a><a class="more" href="https://t.me/usamaluh" target="_blank" rel="noopener">или Дане</a></p>
+      </div>
+      <div class="stagebox" id="stagebox">
+        <div class="float" id="float" aria-hidden="true">
+          <div class="fw f1"><img src="../assets/shots/s/masy.jpg" alt=""></div>
+          <div class="fw f2"><img src="../assets/shots/s/miele-perm.jpg" alt=""></div>
+          <div class="fw f3"><img src="../assets/shots/s/mgla.jpg" alt=""></div>
+        </div>
+        <div id="chatHome">
+          <div class="chatw" id="chat" role="region" aria-label="Переписка с Кириллом и Даней">
+            <div class="ch-top">
+              <span class="av" aria-hidden="true"><img src="../assets/team/kirill.jpg" alt=""><img src="../assets/team/danya.jpg" alt=""></span>
+              <div><b>Кирилл и Даня</b><small>отвечаем в течение дня</small></div>
+              <div class="ch-act"><button class="ib" type="button" id="restart" title="Начать разговор заново">Заново</button><button class="ib closeS" type="button" id="closeS" aria-label="Свернуть переписку">Свернуть</button></div>
+            </div>
+            <div class="msgs" id="msgs" aria-live="polite"></div>
+            <div class="dock" id="dock"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Пространство работ ── -->
+  <section id="space" aria-label="Наши работы">
+    <div class="sp-stick">
+      <div class="sp-head" id="spHead"><h2>Пройдитесь по нашим сайтам.</h2><p>Листайте — вы летите сквозь них. Любой можно открыть.</p></div>
+      <div class="world" id="world"></div>
+      <div class="sp-prog" id="spProg"></div>
+      <div class="sp-cap" id="spCap"><div class="tx"><b id="capN"></b><span id="capW"></span></div><a class="btn" id="capA" href="#" target="_blank" rel="noopener">Открыть</a></div>
+    </div>
+  </section>
+
+  <!-- ── Спокойствие ── -->
+  <section class="sec" id="calm">
+    <div class="wrap">
+      <div class="sec-head"><h2>Платите, когда <span class="grad">уже нравится.</span></h2><p class="lead">Мы сначала делаем, потом просим деньги. Вот всё, что обычно пугает, — и как у нас.</p></div>
+      <div class="calm" id="calmList"></div>
+    </div>
+  </section>
+
+  <!-- ── Цены ── -->
+  <section class="sec" id="price">
+    <div class="wrap">
+      <div class="sec-head"><h2>Цены открыто.</h2><p class="lead">Цены — «от». Точную назовём после демо, и без вашего согласия она не вырастет.</p></div>
+      <div class="pk" id="pk"></div>
+      <div class="extras" id="extras"></div>
+    </div>
+  </section>
+
+  <!-- ── Истории ── -->
+  <section class="sec" id="stories">
+    <div class="wrap">
+      <div class="sec-head"><h2>Четыре истории.</h2><p class="lead">Настоящие клиенты. Отзывы не придумываем — просто откройте их сайты.</p></div>
+      <div class="stories" id="storyList"></div>
+    </div>
+  </section>
+
+  <!-- ── Как работаем ── -->
+  <section class="sec" id="how">
+    <div class="wrap">
+      <div class="sec-head"><h2>Пять шагов.</h2><p class="lead">Платить начинаете только на третьем, когда уже видели свой сайт.</p></div>
+      <div class="road" id="road"></div>
+      <div class="give" id="give"></div>
+    </div>
+  </section>
+
+  <!-- ── Мы ── -->
+  <section class="sec" id="us">
+    <div class="wrap">
+      <div class="sec-head"><h2>Это мы.</h2><p class="lead">Без офиса и менеджеров. Вы переписываетесь с теми, кто делает ваш сайт.</p></div>
+      <div class="duo" id="duo"></div>
+      <div class="ai" id="ai"></div>
+      <p class="us-note">Мы делаем всё вдвоём: дизайн, код, 3D, ботов. Один ведёт проект, второй проверяет. Самозанятые — договор и чек на каждую оплату.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap"><div class="sec-head"><h2>Вопросы.</h2></div><div class="faq" id="faqList"></div></div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Начнём <span class="grad">с разговора?</span></h2>
+      <p class="lead">Пара вопросов — и завтра у вас ссылка на первый экран вашего сайта. Бесплатно.</p>
+      <a class="btn" href="#chat" data-tochat>Открыть переписку</a>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap" id="foot"></div></footer>
+
+<button class="fab" id="fab" type="button" aria-label="Открыть переписку с Кириллом и Даней"><span class="av" aria-hidden="true"><img src="../assets/team/kirill.jpg" alt=""><img src="../assets/team/danya.jpg" alt=""></span><span id="fabT">Продолжить разговор</span></button>
+<div class="sheet" id="sheet"><div class="slot" id="slot"></div></div>
+
+<script src="../assets/data.js"></script>
+<script src="../assets/lead.js"></script>
+<script>
+(() => {
+const K = window.KD, L = window.LEAD;
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const W = id => K.works.find(w => w.id === id);
+addEventListener('scroll', () => document.body.classList.toggle('scrolled', scrollY > 10), { passive: true });
+
+/* ════════ Переписка-воронка ════════ */
+/* что показать и что советовать под каждое дело */
+const BIZ = {
+  'Салон или барбершоп': { shot: 'dajour', site: 'landing', bot: 'bot-book', why: 'Клиент видит услуги и цены и сам записывается — без переписки в директе.' },
+  'Бренд одежды': { shot: 'masy', site: 'catalog', why: 'Каталог с размерами и наличием, который вы ведёте сами.' },
+  'Магазин или шоурум': { shot: 'miele-perm', site: 'catalog', why: 'Каталог с остатками и кабинет, где вы сами меняете цены.' },
+  'Автосервис или детейлинг': { shot: 'vybor-avto', site: 'landing', bot: 'bot-book', why: 'Услуги, цены и запись на время — в одно касание.' },
+  'Кафе или кофейня': { shot: 'hamlet-coffee-company', site: 'landing', why: 'Меню, атмосфера, адрес и маршрут — то, что ищут перед визитом.' },
+  'Частный мастер': { shot: 'pm-code', site: 'landing', bot: 'bot-book', why: 'Работы, цены и запись — одна аккуратная страница вместо десятка сообщений.' },
+  'Другое': { shot: 'fiesta-event', site: 'landing', why: 'Одна длинная страница в вашем стиле — самый частый выбор.' },
+};
+const S = { biz: '', goal: '', site: '', addons: [], name: '', link: '', wish: '', contact: '' };
+let log = [];              /* ответы пользователя по шагам — чтобы восстановить разговор после перезагрузки */
+let step = 0, busy = false, sent = false;
+const msgs = $('#msgs'), dock = $('#dock');
+const recOf = () => { const b = BIZ[S.biz] || BIZ['Другое']; let site = b.site; if (S.goal === 'Продавать онлайн') site = 'catalog'; if (S.goal === 'Выглядеть дороже конкурентов' && (S.biz === 'Бренд одежды' || S.biz === 'Магазин или шоурум')) site = 'flagship'; return { ...b, site }; };
+const siteName = id => (K.sites.find(s => s.id === id) || {}).name || (id === 'bot' ? 'Только бот' : id === 'help' ? 'Подскажите' : '');
+const est = () => K.estimate({ site: S.site, addons: S.addons });
+
+const flow = [
+  { key: 'biz', who: 'k',
+    say: () => ['Привет! Это Кирилл и Даня — мы делаем сайты и Telegram-ботов.', 'Чем вы занимаетесь? Покажем, что делали похожего, и прикинем цену.'],
+    ask: () => ({ type: 'one', options: K.biz.map(v => [v, v]) }) },
+  { key: 'goal', who: 'd',
+    say: () => { const b = BIZ[S.biz] || BIZ['Другое'], w = W(b.shot); popFloat(w); return [{ card: w }, 'Вот похожий наш сайт — его можно открыть. А что для вас сейчас главное?']; },
+    ask: () => ({ type: 'one', options: K.goals.map(v => [v, v]) }) },
+  { key: 'site', who: 'k', skip: () => !!S.site,
+    say: () => { const r = recOf(), s = K.sites.find(x => x.id === r.site); return [`Тогда советую «${s.name}» — от ${K.rub(s.price)}, ${s.daysText}. ${r.why || s.for}`, 'Подходит? Можно выбрать и другое:']; },
+    ask: () => { const r = recOf(); return { type: 'one', options: [...K.sites.map(s => [s.id, s.name, 'от ' + K.rub(s.price), s.id === r.site]), ['bot', 'Только бот, без сайта'], ['help', 'Не знаю — подскажите']] }; } },
+  { key: 'addons', who: 'd',
+    say: () => { const r = recOf(); return [S.site === 'bot' ? 'Какой бот нужен? Можно несколько.' : 'Что добавить? Можно несколько — или ничего.' + (r.bot && S.site !== 'bot' ? ' Для вашего дела обычно берут бота с записью.' : '')]; },
+    ask: () => { const r = recOf(); return { type: 'many', options: K.addons.filter(a => S.site !== 'bot' || a.group === 'bot').map(a => [a.id, a.name, a.pct ? '+' + a.pct + '%' : (a.from ? 'от ' : '') + K.rub(a.price) + (a.per ? '/мес' : ''), a.id === r.bot]) }; } },
+  { key: 'name', who: 'k',
+    say: () => { const e = est(); return [e.sum ? `По ориентиру выходит ${e.sumText}${e.daysText ? ', срок ' + e.daysText : ''}. Точную цену назовём после демо.` : 'Цену посчитаем после демо.', 'Как называется ваше дело? Можно сразу ссылку на соцсети или карты — возьмём оттуда фото и цены.']; },
+    ask: () => ({ type: 'text', ph: 'Название или ссылка', skip: 'Пока без названия' }) },
+  { key: 'wish', who: 'd',
+    say: () => ['Что хотите от сайта и для чего? Своими словами, как другу.'],
+    ask: () => ({ type: 'text', area: true, ph: 'Например: хочу, чтобы клиенты сами записывались, а сайт выглядел как дорогой салон', skip: 'Расскажу в переписке' }) },
+  { key: 'contact', who: 'k',
+    say: () => ['Последнее — куда прислать демо? Ник в Telegram или телефон.'],
+    ask: () => ({ type: 'text', ph: '@name или +7 900 000-00-00', check: true, ac: 'tel' }) },
+  { key: 'final', who: 'k',
+    say: () => [{ rcpt: true }],
+    ask: () => ({ type: 'final' }) },
+];
+
+const sleep = ms => new Promise(r => setTimeout(r, RM || fast ? 0 : ms));
+let fast = false, lastWho = '';
+function scrollDown() { msgs.scrollTop = msgs.scrollHeight; }
+function addWho(who) { if (who === lastWho) return; lastWho = who; msgs.insertAdjacentHTML('beforeend', `<div class="who">${who === 'k' ? 'Кирилл' : who === 'd' ? 'Даня' : ''}</div>`); }
+async function botSay(who, items) {
+  for (const it of items) {
+    if (!fast && !RM) { const t = document.createElement('div'); t.className = 'typing'; t.innerHTML = '<i></i><i></i><i></i>'; t.setAttribute('aria-label', 'печатает'); addWho(who); msgs.appendChild(t); scrollDown(); await sleep(typeof it === 'string' ? Math.min(1300, 450 + it.length * 9) : 700); t.remove(); }
+    else addWho(who);
+    if (typeof it === 'string') msgs.insertAdjacentHTML('beforeend', `<div class="m them">${esc(it)}</div>`);
+    else if (it.card) { const w = it.card; msgs.insertAdjacentHTML('beforeend', `<a class="card" href="${esc(w.url)}" target="_blank" rel="noopener"><img src="${w.img}" alt="Сайт ${esc(w.name)}"><div><b>${esc(w.name)}<span class="tag ${w.kind === 'client' ? 'client' : ''}">${w.kind === 'client' ? 'Клиент' : 'Концепт'}</span></b><span>${esc(w.what)}</span></div></a>`); }
+    else if (it.rcpt) msgs.insertAdjacentHTML('beforeend', receipt());
+    scrollDown();
+  }
+}
+function meSay(text) { lastWho = 'me'; msgs.insertAdjacentHTML('beforeend', `<div class="m me">${esc(text)}</div>`); scrollDown(); }
+function receipt() {
+  const e = est(), rows = [
+    ['Дело', [S.biz, S.name].filter(Boolean).join(' — ')], ['Ссылка', S.link], ['Нужно', siteName(S.site)],
+    ['Добавить', S.addons.map(id => (K.addons.find(a => a.id === id) || {}).name).join(', ')], ['Главное', S.goal], ['Пожелания', S.wish], ['Ответить', S.contact],
+  ].filter(r => r[1]);
+  return `<div class="rcpt" id="rcpt"><h4>Ваша заявка</h4><dl>${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+    <div class="sum"><span>${e.daysText ? 'Срок ' + esc(e.daysText) : 'Ориентир'}</span><b>${e.sum ? esc(e.sumText) : 'после демо'}</b></div>
+    <button class="btn" type="button" id="sendLead">Отправить заявку</button>
+    <div class="row"><button class="btn ghost" type="button" id="again">Изменить</button></div></div>`;
+}
+function lead() {
+  const e = est();
+  return { source: 'сайт v8, переписка', name: S.name, biz: S.biz, link: S.link, site: siteName(S.site) + (S.site === 'help' ? ' — что нужно' : ''),
+    addons: S.addons.map(id => (K.addons.find(a => a.id === id) || {}).name).filter(Boolean), goal: S.goal, wish: S.wish,
+    estimate: e.sum ? e.sumText : '', days: e.daysText, contact: S.contact };
+}
+
+/* нижняя панель: варианты или поле ввода */
+function showAsk(a) {
+  dock.innerHTML = '';
+  if (a.type === 'one' || a.type === 'many') {
+    const sel = new Set(a.type === 'many' ? a.options.filter(o => o[3] && false).map(o => o[0]) : []);
+    dock.innerHTML = `<div class="opts" role="group" aria-label="Варианты ответа">${a.options.map(([v, t, sub, rec], i) => `<button class="op${rec ? ' rec' : ''}" type="button" data-v="${esc(v)}" ${a.type === 'many' ? 'aria-pressed="false"' : ''} style="animation-delay:${RM ? 0 : i * 35}ms">${esc(t)}${sub ? `<small>${esc(sub)}</small>` : ''}${rec ? '<small>· советуем</small>' : ''}</button>`).join('')}${a.type === 'many' ? `<button class="op go" type="button" data-go>Ничего не нужно</button>` : ''}</div>`;
+    dock.querySelector('.opts').addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b || busy) return;
+      if (b.dataset.go !== undefined) { const vals = [...sel]; answer(vals, vals.length ? vals.map(v => (K.addons.find(x => x.id === v) || {}).name).join(', ') : 'Пока ничего'); return; }
+      if (a.type === 'one') { const o = a.options.find(o => o[0] === b.dataset.v); answer(o[0], o[1]); return; }
+      const v = b.dataset.v; sel.has(v) ? sel.delete(v) : sel.add(v); b.setAttribute('aria-pressed', sel.has(v));
+      dock.querySelector('[data-go]').textContent = sel.size ? `Готово · ${sel.size}` : 'Ничего не нужно';
+    });
+    const f = dock.querySelector('.op'); if (f && started) f.focus({ preventScroll: true });
+  } else if (a.type === 'text') {
+    dock.innerHTML = `<form class="comp" id="comp"><label class="sr" for="inp">${esc(a.ph)}</label>${a.area ? `<textarea id="inp" rows="1" placeholder="${esc(a.ph)}"></textarea>` : `<input id="inp" placeholder="${esc(a.ph)}" ${a.ac ? `autocomplete="${a.ac}"` : ''}>`}<button class="send" type="submit" aria-label="Отправить" disabled><svg width="18" height="18" viewBox="0 0 20 20"><path d="M10 16V4M4.5 9.5L10 4l5.5 5.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></form>
+      <div class="hint" id="hint" aria-live="polite">${a.skip ? '' : ''}</div>${a.skip ? `<div class="opts" style="margin-top:6px"><button class="op skip" type="button" data-skip>${esc(a.skip)}</button></div>` : ''}`;
+    const inp = $('#inp'), btn = dock.querySelector('.send'), hint = $('#hint');
+    inp.value = S[flow[step].key] || '';
+    btn.disabled = !inp.value.trim();
+    inp.addEventListener('input', () => { btn.disabled = !inp.value.trim(); if (inp.tagName === 'TEXTAREA') { inp.style.height = 'auto'; inp.style.height = Math.min(120, inp.scrollHeight) + 'px'; } hint.textContent = ''; hint.classList.remove('err'); });
+    inp.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey && inp.tagName === 'TEXTAREA') { e.preventDefault(); $('#comp').requestSubmit(); } });
+    $('#comp').addEventListener('submit', e => {
+      e.preventDefault(); const v = inp.value.trim(); if (!v || busy) return;
+      if (a.check) { const m = L.checkContact(v); if (m) { hint.textContent = m; hint.classList.add('err'); inp.setAttribute('aria-invalid', 'true'); inp.focus(); return; } }
+      answer(v, v);
+    });
+    const sk = dock.querySelector('[data-skip]'); if (sk) sk.addEventListener('click', () => !busy && answer('', a.skip));
+    if (started && matchMedia('(hover:hover)').matches) inp.focus({ preventScroll: true });
+  } else if (a.type === 'final') {
+    dock.innerHTML = `<div class="hint">Проверьте заявку выше и нажмите «Отправить заявку».</div>`;
+  }
+}
+let started = false;
+async function answer(val, text) {
+  started = true; const f = flow[step];
+  if (f.key === 'name') { const isLink = /https?:|www\.|\.[a-zа-я]{2,}\/?|^@/i.test(val); if (isLink) { S.link = val; S.name = ''; } else { S.name = val; } }
+  else S[f.key] = val;
+  log[step] = val; save();
+  meSay(text); dock.innerHTML = ''; step++;
+  await run();
+}
+async function run() {
+  busy = true;
+  while (step < flow.length && flow[step].skip && flow[step].skip()) step++;
+  const f = flow[step]; if (!f) { busy = false; return; }
+  await botSay(f.who, f.say());
+  showAsk(f.ask());
+  busy = false; save(); fabBadge();
+}
+/* восстановление и «заново» */
+function save() { L.save({ log, S, step, sent }); }
+async function restore() {
+  const d = L.load();
+  if (!d || !d.log || !d.log.length) { await run(); return; }
+  fast = true; if (d.S && d.S.site) S.site = d.S.site;
+  for (let i = 0; i < d.log.length && i < flow.length; i++) {
+    if (d.log[i] == null && flow[i].skip) continue;
+    step = i; await botSay(flow[i].who, flow[i].say());
+    const v = d.log[i]; if (v === undefined || v === null) continue;
+    const a = flow[i].ask(); let text = Array.isArray(v) ? (v.length ? v.map(x => (K.addons.find(y => y.id === x) || {}).name).join(', ') : 'Пока ничего') : (a.options ? ((a.options.find(o => o[0] === v) || [])[1] || v) : v || a.skip);
+    if (flow[i].key === 'name') { const isLink = /https?:|www\.|\.[a-zа-я]{2,}\/?|^@/i.test(v); if (isLink) S.link = v; else S.name = v; } else S[flow[i].key] = v;
+    log[i] = v; meSay(text);
+  }
+  step = d.log.length; fast = false; sent = !!d.sent;
+  await run();
+}
+function restart() {
+  Object.assign(S, { biz: '', goal: '', site: '', addons: [], name: '', link: '', wish: '', contact: '' });
+  log = []; step = 0; sent = false; lastWho = ''; msgs.innerHTML = '<div class="day">Сегодня</div>'; dock.innerHTML = ''; save(); run();
+}
+$('#restart').addEventListener('click', () => { if (!busy) restart(); });
+msgs.addEventListener('click', async e => {
+  if (e.target.closest('#again')) { if (!busy) restart(); return; }
+  const sb = e.target.closest('#sendLead'); if (!sb || sb.disabled) return;
+  sb.disabled = true; sb.textContent = 'Отправляем…';
+  const r = await L.send(lead()); sent = true; save();
+  sb.textContent = 'Заявка отправлена'; dock.innerHTML = '';
+  if (r.via === 'auto') await botSay('k', ['Получили! Ответим в течение дня, а демо пришлём за 24 часа. Спасибо, что написали.']);
+  else {
+    window.open(r.href, '_blank', 'noopener');
+    await botSay('k', ['Открыли Telegram — там уже набран текст вашей заявки. Нажмите «Отправить», и мы ответим в течение дня.']);
+    msgs.insertAdjacentHTML('beforeend', `<div class="rcpt" style="padding:12px"><a class="btn" href="${esc(r.href)}" target="_blank" rel="noopener" style="margin:0">Открыть Telegram</a><div class="row"><button class="btn ghost" type="button" id="cp">Скопировать текст</button><a class="btn ghost" href="${esc(L.tgLink(r.text, 'danya'))}" target="_blank" rel="noopener">Написать Дане</a></div></div>`);
+    $('#cp').addEventListener('click', async ev => { const ok = await L.copy(r.text); ev.target.textContent = ok ? 'Скопировано' : 'Не вышло'; });
+    scrollDown();
+  }
+});
+msgs.innerHTML = '<div class="day">Сегодня</div>';
+
+/* показ похожей работы «в пространстве» за окном переписки */
+function popFloat(w) {
+  if (!w) return; const f = $('.fw.f1'); if (!f) return;
+  f.querySelector('img').src = w.thumb; f.classList.remove('pop'); void f.offsetWidth; f.classList.add('pop');
+}
+/* окно переписки чуть поворачивается за мышью */
+const stagebox = $('#stagebox'), fl = $('#float');
+if (!RM && matchMedia('(hover:hover)').matches) addEventListener('pointermove', e => {
+  const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+  fl.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 8}deg) translateZ(0)`;
+}, { passive: true });
+
+/* запуск: на телефоне — когда окно переписки показалось на экране */
+let booted = false;
+const boot = () => { if (booted) return; booted = true; restore(); };
+new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { o.disconnect(); boot(); } }, { threshold: .25 }).observe($('#chat'));
+
+/* ── Плавающая кнопка и лист ── */
+const fab = $('#fab'), sheet = $('#sheet'), chatEl = $('#chat'), home = $('#chatHome'), slot = $('#slot');
+let sheetOpen = false, chatVisible = true;
+new IntersectionObserver(es => { chatVisible = es[0].isIntersecting; fabState(); }, { threshold: 0 }).observe(home);
+function fabState() { fab.classList.toggle('show', !chatVisible && !sheetOpen); }
+function fabBadge() { $('#fabT').textContent = step === 0 ? 'Написать нам' : flow[step] && flow[step].key === 'final' ? (sent ? 'Наша переписка' : 'Заявка почти готова') : 'Продолжить разговор'; }
+function openSheet() {
+  if (chatVisible) { chatEl.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'center' }); return; }
+  home.style.minHeight = home.offsetHeight + 'px'; slot.appendChild(chatEl); sheet.classList.add('open'); sheetOpen = true; fabState();
+  setTimeout(() => { scrollDown(); const f = dock.querySelector('input,textarea,.op'); f && f.focus({ preventScroll: true }); }, 60);
+  boot();
+}
+function closeSheet() { if (!sheetOpen) return; home.appendChild(chatEl); home.style.minHeight = ''; sheet.classList.remove('open'); sheetOpen = false; fabState(); fab.focus(); }
+fab.addEventListener('click', openSheet);
+$('#closeS').addEventListener('click', closeSheet);
+sheet.addEventListener('click', e => { if (e.target === sheet) closeSheet(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+$$('[data-tochat]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); openSheet(); }));
+
+/* ════════ Пространство работ (CSS 3D) ════════ */
+const world = $('#world'), space = $('#space');
+const list = K.works.slice(0, 18);
+const mob = () => innerWidth < 760;
+const GAP = 620;
+world.innerHTML = list.map((w, i) => `<a class="win" href="${esc(w.url)}" target="_blank" rel="noopener" data-i="${i}" aria-label="${esc(w.name)}: ${esc(w.what)}"><div class="bar"><i></i><i></i><i></i><span>${esc(w.name)}</span></div><img src="${w.img}" alt="" loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async"></a>`).join('');
+const wins = $$('.win');
+const POS = list.map((w, i) => { const side = i % 3 === 0 ? 0 : i % 3 === 1 ? -1 : 1; return { x: side, y: (i % 2 ? 1 : -1) * (side === 0 ? .15 : .45), rot: -side * 14 }; });
+let cur = -1, mx = 0, my = 0, tmx = 0, tmy = 0, sp = 0, spT = 0, raf = 0;
+const isFlat = () => document.documentElement.classList.contains('flat');
+if (RM) document.documentElement.classList.add('flat');
+function layout() {
+  const m = mob(), ww = m ? Math.min(300, innerWidth * .78) : Math.min(500, innerWidth * .36);
+  world.style.setProperty('--ww', ww + 'px');
+  const sx = m ? innerWidth * .16 : Math.min(innerWidth * .27, 400), sy = m ? innerHeight * .2 : innerHeight * .26;
+  POS.forEach((p, i) => { p.px = p.x * sx; p.py = p.y * sy; p.pz = -i * GAP; });
+}
+function frame() {
+  raf = 0;
+  sp += (spT - sp) * .14; mx += (tmx - mx) * .08; my += (tmy - my) * .08;
+  const camZ = sp * (list.length - 1) * GAP - 200;
+  world.style.transform = `translateZ(${camZ.toFixed(1)}px) rotateY(${(mx * 6).toFixed(2)}deg) rotateX(${(-my * 4).toFixed(2)}deg)`;
+  let best = -1, bd = 1e9;
+  wins.forEach((el, i) => {
+    const p = POS[i], z = p.pz + camZ;           /* z > 0 — уже пролетели */
+    const o = z > 650 ? 0 : z > 380 ? 1 - (z - 380) / 270 : z < -3600 ? 0 : z < -2200 ? (z + 3600) / 1400 : 1;
+    el.style.opacity = o.toFixed(3); el.style.visibility = o < .01 ? 'hidden' : 'visible';
+    el.style.transform = `translate3d(${p.px}px,${p.py}px,${p.pz}px) rotateY(${p.rot}deg)`;
+    const d = Math.abs(z + 150); if (d < bd && o > .5) { bd = d; best = i; }
+  });
+  if (best !== cur && best >= 0) { cur = best; wins.forEach((el, i) => el.classList.toggle('on', i === cur)); const w = list[cur];
+    $('#capN').innerHTML = `${esc(w.name)} <span class="tag ${w.kind === 'client' ? 'client' : ''}">${w.kind === 'client' ? 'Клиент' : 'Концепт'}</span>`; $('#capW').textContent = w.what; $('#capA').href = w.url;
+    $('#spProg').textContent = (cur + 1) + ' / ' + list.length; }
+  $('#spHead').style.opacity = Math.max(0, 1 - sp * 9).toFixed(3);
+  if (Math.abs(spT - sp) > .0005 || Math.abs(tmx - mx) > .001 || Math.abs(tmy - my) > .001) raf = requestAnimationFrame(frame);
+}
+function kick() { if (!raf && !isFlat()) raf = requestAnimationFrame(frame); }
+function onScroll() { if (isFlat()) return; const r = space.getBoundingClientRect(), total = space.offsetHeight - innerHeight; spT = Math.min(1, Math.max(0, -r.top / total)); kick(); }
+addEventListener('scroll', onScroll, { passive: true });
+addEventListener('resize', () => { layout(); kick(); });
+if (!RM && matchMedia('(hover:hover)').matches) addEventListener('pointermove', e => { const r = space.getBoundingClientRect(); if (r.top > innerHeight || r.bottom < 0) return; tmx = e.clientX / innerWidth - .5; tmy = e.clientY / innerHeight - .5; kick(); }, { passive: true });
+layout(); onScroll(); sp = spT; kick();
+
+/* ════════ Остальные блоки ════════ */
+const P = K.promises;
+$('#calmList').innerHTML = P.map(p => `<div class="cl"><div class="big ${p === P[0] ? '' : 'grad'}">${esc(p.big)}</div><div><h3>${esc(p.title)}</h3><p>${esc(p.text)}</p></div></div>`).join('');
+$('#pk').innerHTML = K.sites.map(s => `<div class="pkc ${s.hit ? 'hit' : ''}">${s.hit ? '<span class="badge">берут чаще всего</span>' : ''}<h3>${esc(s.name)}</h3><div class="pr"><small>от</small>${K.rub(s.price)}</div><div class="dd">${esc(s.daysText)} · правок: ${s.edits} · исправления ${esc(s.fixes)}</div><p class="for">${esc(s.for)}</p><ul>${s.has.map(h => `<li>${esc(h)}</li>`).join('')}</ul><button class="btn ${s.hit ? '' : 'ghost'}" type="button" data-pick="${s.id}">Хочу «${esc(s.name)}»</button><a class="more eg" href="${esc(s.eg.url)}" target="_blank" rel="noopener">Пример: ${esc(s.eg.name)}</a></div>`).join('');
+$('#pk').addEventListener('click', async e => {
+  const b = e.target.closest('[data-pick]'); if (!b) return;
+  S.site = b.dataset.pick; openSheet();
+  /* если разговор как раз на выборе основы — отвечаем за человека */
+  const wait = () => new Promise(r => { const t = setInterval(() => { if (!busy) { clearInterval(t); r(); } }, 120); });
+  await wait();
+  if (flow[step] && flow[step].key === 'site') answer(S.site, 'Хочу «' + siteName(S.site) + '»');
+});
+$('#extras').innerHTML = K.services.map(s => `<div class="ex"><h3>${esc(s.name)}</h3><ul>${s.rows.map(([a, b]) => `<li><span>${esc(a)}</span><span>${esc(b)}</span></li>`).join('')}</ul></div>`).join('');
+$('#storyList').innerHTML = K.cases.map(c => `<article class="st"><div class="im"><img src="${c.img}" alt="Сайт: ${esc(c.name)}" loading="lazy"></div><div class="tx"><div><span class="tag ${c.kind === 'Клиент' ? 'client' : ''}">${esc(c.kind)}</span></div><h3>${esc(c.name)}</h3><p>${esc(c.task)}</p><dl>${c.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl><a class="more" href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.link)}</a></div></article>`).join('');
+$('#road').innerHTML = K.steps.map((s, i) => `<div class="rd"><span class="n">${i + 1}</span><span class="tm">${esc(s.time)}</span><b>${esc(s.name)}</b><p>${esc(s.text)}</p></div>`).join('');
+$('#give').innerHTML = '<b>От вас нужно:</b>' + K.fromYou.map(x => `<span>${esc(x)}</span>`).join('');
+const people = [
+  { ...K.team[0], quote: 'Привет, я Кирилл, сделаю вашему бизнесу сайт, который выглядит дороже конкурентов; TG боты, любой дизайн и не только' },
+  { ...K.team[1], quote: 'Привет, я Даня, сделаю сайт для вашего бизнеса, с любыми вашими креативными пожеланиями; telegram боты и не только' },
+];
+$('#duo').innerHTML = people.map(p => `<div class="ps"><img src="${p.photo}" alt="${p.name}"><div><h3>${p.name}</h3><p class="nk">@${p.tg} в Telegram</p><q>${esc(p.quote)}</q><a class="btn ghost" href="${L.tgLink('', p.id === 'danya' ? 'danya' : '')}" target="_blank" rel="noopener">Написать ${p.id === 'danya' ? 'Дане' : 'Кириллу'}</a></div></div>`).join('');
+$('#ai').innerHTML = `<div><h3>Что делает ИИ</h3><ul>${K.ai.ai.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div><div><h3>Что делаем мы</h3><ul>${K.ai.we.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>`;
+$('#faqList').innerHTML = K.faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
+$('#foot').innerHTML = `<div class="fr"><span>${esc(K.foot.sign)}</span><span><a href="https://t.me/AI_KUHTA" target="_blank" rel="noopener">Telegram Кирилла</a> · <a href="https://t.me/usamaluh" target="_blank" rel="noopener">Telegram Дани</a> · <a href="${L.mailLink('')}">Почта</a></span></div><p>${esc(K.foot.kinds)}</p><p>${esc(K.foot.note)}</p>`;
+})();
+</script>
+</body>
+</html>
